@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "team-activity",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-01",
+  "assets": { "directory": "public", "binding": "ASSETS", "run_worker_first": true },
+  "durable_objects": { "bindings": [{ "name": "MIRROR", "class_name": "GitHubMirror" }] },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["GitHubMirror"] }],
+  // The mirror polls on its own Durable Object alarm (pollMinutes in config/dashboard.json); this
+  // hourly cron only makes sure that alarm exists.
+  "triggers": { "crons": ["17 * * * *"] },
+  "observability": { "enabled": true }
+  // Secrets (wrangler secret put): GITHUB_APP_ID, GITHUB_APP_PRIVATE_KEY, optional
+  // GITHUB_APP_INSTALLATION_ID; or GITHUB_TOKEN. Optional DASHBOARD_PASSWORD.
+}

@@ -1,0 +1,20 @@
+{
+  "$comment": "Tracked repos and people. Edit and redeploy. backfillSince is optional: omit it for the normal 'open items only, history from today' initial sync.",
+  "timezone": "Europe/London",
+  "pollMinutes": 10,
+  "backfillSince": "2026-09-28T00:00:00Z",
+  "repos": [
+    { "name": "honojs/hono", "branches": "all" },
+    { "name": "vitest-dev/vitest", "branches": "default" },
+    { "name": "unjs/h3", "branches": "all" }
+  ],
+  "users": [
+    { "login": "yusukebe", "name": "Yusuke Wada" },
+    { "login": "usualoma", "name": "Taku Amano" },
+    { "login": "sheremet-va", "name": "Vladimir Sheremet" },
+    { "login": "hi-ogawa", "name": "Hiroshi Ogawa" },
+    { "login": "AriPerkkio", "name": "Ari Perkkiö" },
+    { "login": "pi0", "name": "Pooya Parsa", "aliases": ["x@pi0.io"] }
+  ],
+  "churnExclude": ["package-lock.json", "pnpm-lock.yaml", "yarn.lock", "bun.lock", "bun.lockb", "*.snap", "dist/**"]
+}
